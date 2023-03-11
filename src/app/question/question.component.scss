@@ -1,0 +1,21 @@
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+mat-radio-button {
+  margin: 5px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+.border-success,
+.border-danger {
+  border-width: 2px;
+  font-weight: 700;
+}

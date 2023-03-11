@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./styles/custom-bootstrap.scss";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-badge.text-success .mat-badge-content {
+  background: rgb(25, 135, 84);
+}
+
+.mat-badge.text-danger .mat-badge-content {
+  background: rgb(220, 53, 69);
+}
+
+.mat-badge.text-warning .mat-badge-content {
+  background: rgb(255, 193, 7);
+}
+
+.border-success.mat-mdc-radio-button.mat-primary .mdc-radio--disabled + label {
+  color: rgb(25, 135, 84);
+}
+.border-danger.mat-mdc-radio-button.mat-primary .mdc-radio--disabled + label {
+  color: rgb(220, 53, 69);
+}

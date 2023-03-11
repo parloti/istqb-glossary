@@ -1,0 +1,74 @@
+<div class="mt-5 container-fluid" *ngIf="acceptLanguage">
+  <label>
+    {{ index }} - {{ acceptLanguage.name }}
+    <span *ngIf="acceptLanguage.abbreviation"
+      >({{ acceptLanguage.abbreviation | uppercase }})</span
+    ></label
+  >
+  <ng-container *ngIf="statistic">
+    <span
+      class="ms-4 text-success"
+      [matBadge]="statistic.correct"
+      matBadgeOverlap="false"
+      ><strong>✓</strong></span
+    >
+    <span
+      class="ms-4 text-danger"
+      [matBadge]="statistic.wrong"
+      matBadgeOverlap="false"
+      ><strong>X</strong></span
+    >
+    <span
+      class="ms-4 text-warning"
+      [matBadge]="statistic.streak"
+      matBadgeOverlap="false"
+      ><strong>🗲</strong></span
+    >
+  </ng-container>
+  <mat-radio-group [(ngModel)]="selectedAnswer">
+    <mat-radio-button
+      [disabled]="answered"
+      color="primary"
+      [ngClass]="{
+        border: selectedAnswer === option.id,
+        'border border-danger':
+          answered &&
+          selectedAnswer === option.id &&
+          acceptLanguage.id !== option.id,
+        'border border-success': answered && option.id === acceptLanguage.id
+      }"
+      *ngFor="let option of options"
+      [value]="option.id"
+    >
+      <div>{{ option.definition }}</div>
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <div class="actions">
+    <button
+      *ngIf="!answered"
+      mat-raised-button
+      color="warn"
+      [disabled]="!selectedAnswer"
+      (click)="answer()"
+    >
+      Answer
+    </button>
+    <button (click)="next()" *ngIf="answered" mat-raised-button color="primary">
+      Next
+    </button>
+  </div>
+
+  <div class="mt-5">
+    <label>Current section:</label>
+    <span
+      class="ms-4 text-success"
+      [matBadge]="corrects"
+      matBadgeOverlap="false"
+      ><strong>✓</strong></span
+    >
+    <span class="ms-4 text-danger" [matBadge]="wrongs" matBadgeOverlap="false"
+      ><strong>X</strong></span
+    >
+  </div>
+</div>
