@@ -65,7 +65,7 @@ export class TermsService {
         return 1;
       }
 
-      return 1 + stati.wrong / (stati.correct + 1) / (stati.streak + 1);
+      return 1 + (stati.wrong + 1) / (stati.correct + 1) / (stati.streak + 1);
     });
 
     const steps = weights.map((w) => w);
