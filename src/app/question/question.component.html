@@ -1,63 +1,78 @@
-<div class="mt-5 container-fluid" *ngIf="acceptLanguage">
-  <label>
-    {{ index }} - {{ acceptLanguage.name }}
-    <span *ngIf="acceptLanguage.abbreviation"
-      >({{ acceptLanguage.abbreviation | uppercase }})</span
-    ></label
-  >
-  <ng-container *ngIf="statistic">
-    <span
-      class="ms-4 text-success"
-      [matBadge]="statistic.correct"
-      matBadgeOverlap="false"
-      ><strong>✓</strong></span
-    >
-    <span
-      class="ms-4 text-danger"
-      [matBadge]="statistic.wrong"
-      matBadgeOverlap="false"
-      ><strong>X</strong></span
-    >
-    <span
-      class="ms-4 text-warning"
-      [matBadge]="statistic.streak"
-      matBadgeOverlap="false"
-      ><strong>ϟ</strong></span
-    >
-  </ng-container>
-  <mat-radio-group [(ngModel)]="selectedAnswer">
-    <mat-radio-button
-      [disabled]="answered"
-      color="primary"
-      [ngClass]="{
-        border: selectedAnswer === option.id,
-        'border border-danger':
-          answered &&
-          selectedAnswer === option.id &&
-          acceptLanguage.id !== option.id,
-        'border border-success': answered && option.id === acceptLanguage.id
-      }"
-      *ngFor="let option of options"
-      [value]="option.id"
-    >
-      <div>{{ option.definition }}</div>
-    </mat-radio-button>
-  </mat-radio-group>
-
-  <div class="actions">
-    <button
-      *ngIf="!answered"
-      mat-raised-button
-      color="warn"
-      [disabled]="!selectedAnswer"
-      (click)="answer()"
-    >
-      Answer
-    </button>
-    <button (click)="next()" *ngIf="answered" mat-raised-button color="primary">
-      Next
-    </button>
-  </div>
+<div class="container-fluid" *ngIf="acceptLanguage">
+  <mat-card class="mt-2" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>Question</mat-card-title>
+        <mat-card-subtitle class="mt-2">
+          {{ index }} - {{ acceptLanguage.name }}
+          <span *ngIf="acceptLanguage.abbreviation"
+            >({{ acceptLanguage.abbreviation | uppercase }})</span
+          >
+          <ng-container *ngIf="statistic">
+            <span
+              class="ms-4 text-success"
+              [matBadge]="statistic.correct"
+              matBadgeOverlap="false"
+              ><strong>✓</strong></span
+            >
+            <span
+              class="ms-4 text-danger"
+              [matBadge]="statistic.wrong"
+              matBadgeOverlap="false"
+              ><strong>X</strong></span
+            >
+            <span
+              class="ms-4 text-warning"
+              [matBadge]="statistic.streak"
+              matBadgeOverlap="false"
+              ><strong>ϟ</strong></span
+            >
+          </ng-container></mat-card-subtitle
+        >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group [(ngModel)]="selectedAnswer">
+        <mat-radio-button
+          [disabled]="answered"
+          color="primary"
+          [ngClass]="{
+            border: selectedAnswer === option.id,
+            'border border-danger':
+              answered &&
+              selectedAnswer === option.id &&
+              acceptLanguage.id !== option.id,
+            'border border-success': answered && option.id === acceptLanguage.id
+          }"
+          *ngFor="let option of options"
+          [value]="option.id"
+        >
+          <div>{{ option.definition }}</div>
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-card-actions class="justify-content-center">
+        <button
+          *ngIf="!answered"
+          mat-raised-button
+          color="warn"
+          [disabled]="!selectedAnswer"
+          (click)="answer()"
+        >
+          Answer
+        </button>
+        <button
+          (click)="next()"
+          *ngIf="answered"
+          mat-raised-button
+          color="primary"
+        >
+          Next
+        </button>
+      </mat-card-actions>
+    </mat-card-footer>
+  </mat-card>
 
   <mat-card class="mt-5" appearance="outlined">
     <mat-card-header
@@ -83,7 +98,9 @@
     <mat-card-content></mat-card-content>
     <mat-card-footer>
       <mat-card-actions class="justify-content-center">
-        <button mat-raised-button (click)="closeSession()" color="warn">Close Session</button>
+        <button mat-raised-button (click)="closeSession()" color="warn">
+          Close Session
+        </button>
       </mat-card-actions>
     </mat-card-footer>
   </mat-card>
