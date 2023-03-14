@@ -1,0 +1,36 @@
+<mat-card class="mt-5" appearance="outlined">
+  <mat-card-header
+    ><mat-card-title-group>
+      <mat-card-title>Progress</mat-card-title>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Correct:
+      <span class="text-success" [matBadge]="correct" matBadgeOverlap="false"
+        ><strong>✓</strong></span
+      >
+    </p>
+    <p>
+      Wrong:
+      <span class="text-danger" [matBadge]="wrong" matBadgeOverlap="false"
+        ><strong>X</strong></span
+      >
+    </p>
+    <p>
+      Seen:
+      <span><strong>{{seen}}</strong></span>
+    </p>
+    <p>
+      Unseen:
+      <span><strong>{{unseen}}</strong></span>
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-card-actions class="justify-content-center">
+      <button mat-raised-button (click)="newSession()" color="primary">
+        Start Session
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

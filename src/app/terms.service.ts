@@ -19,10 +19,10 @@ interface IStatistics {
 })
 export class TermsService {
   public getStat(term: ITerm): IStatistic {
-    let stat = this.statistics[term.accept_language.id];
+    let stat = this._statistics[term.accept_language.id];
     if (!stat) {
       stat = { correct: 0, wrong: 0, streak: 0 };
-      this.statistics[term.accept_language.id] = stat;
+      this._statistics[term.accept_language.id] = stat;
     }
     return stat;
   }
@@ -43,10 +43,14 @@ export class TermsService {
     return TERMS[id];
   }
 
-  private statistics: IStatistics;
+
+  private _statistics : IStatistics;
+  public get statistics() : IStatistics {
+    return this._statistics;
+  }
 
   private storeStatistics(): void {
-    const value = JSON.stringify(this.statistics);
+    const value = JSON.stringify(this._statistics);
     localStorage.setItem(STORAGE_KEY, value);
   }
 
@@ -60,7 +64,7 @@ export class TermsService {
 
   public next(): IId {
     const weights = this.ids.map((id) => {
-      const stati = this.statistics[id];
+      const stati = this._statistics[id];
       if (!stati) {
         return 1;
       }
@@ -84,6 +88,6 @@ export class TermsService {
   }
 
   constructor() {
-    this.statistics = this.loadStatistics();
+    this._statistics = this.loadStatistics();
   }
 }

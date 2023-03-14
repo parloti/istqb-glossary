@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { CustomReuseStrategy } from './reuse-strategy';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, QuestionComponent],
+  declarations: [AppComponent, QuestionComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
