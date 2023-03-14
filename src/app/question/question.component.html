@@ -59,16 +59,32 @@
     </button>
   </div>
 
-  <div class="mt-5">
-    <label>Current section:</label>
-    <span
-      class="ms-4 text-success"
-      [matBadge]="corrects"
-      matBadgeOverlap="false"
-      ><strong>✓</strong></span
-    >
-    <span class="ms-4 text-danger" [matBadge]="wrongs" matBadgeOverlap="false"
-      ><strong>X</strong></span
-    >
-  </div>
+  <mat-card class="mt-5" appearance="outlined">
+    <mat-card-header
+      ><mat-card-title-group>
+        <mat-card-title>Current section</mat-card-title>
+        <mat-card-subtitle class="mt-2"
+          >Statistics:
+          <span
+            class="text-success"
+            [matBadge]="corrects"
+            matBadgeOverlap="false"
+            ><strong>✓</strong></span
+          >
+          <span
+            class="ms-4 text-danger"
+            [matBadge]="wrongs"
+            matBadgeOverlap="false"
+            ><strong>X</strong></span
+          ></mat-card-subtitle
+        >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content></mat-card-content>
+    <mat-card-footer>
+      <mat-card-actions class="justify-content-center">
+        <button mat-raised-button (click)="closeSession()" color="warn">Close Session</button>
+      </mat-card-actions>
+    </mat-card-footer>
+  </mat-card>
 </div>

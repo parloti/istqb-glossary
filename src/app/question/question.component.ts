@@ -99,6 +99,10 @@ export class QuestionComponent implements OnInit {
     }
   }
 
+  public closeSession(): void {
+    this.router.navigateByUrl('');
+  }
+
   private createOptions(current: ITerm): void {
     const optionIds = new Set<IId>();
     while (optionIds.size < 3) {
