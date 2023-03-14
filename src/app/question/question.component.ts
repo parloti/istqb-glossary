@@ -103,7 +103,9 @@ export class QuestionComponent implements OnInit {
     const optionIds = new Set<IId>();
     while (optionIds.size < 3) {
       const newId = this.termsService.next();
-      optionIds.add(newId);
+      if (newId !== `${current.accept_language.id}`) {
+        optionIds.add(newId);
+      }
     }
     const terms = [...optionIds].map((id) => this.termsService.getTermById(id));
     terms.push(current);
