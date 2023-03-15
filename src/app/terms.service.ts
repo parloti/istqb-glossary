@@ -19,6 +19,7 @@ interface IStatistics {
 })
 export class TermsService {
   public getStat(term: ITerm): IStatistic {
+    this.loadStatistics();
     let stat = this._statistics[term.accept_language.id];
     if (!stat) {
       stat = { correct: 0, wrong: 0, streak: 0 };
@@ -43,9 +44,8 @@ export class TermsService {
     return TERMS[id];
   }
 
-
-  private _statistics : IStatistics;
-  public get statistics() : IStatistics {
+  private _statistics: IStatistics;
+  public get statistics(): IStatistics {
     return this._statistics;
   }
 
@@ -69,7 +69,11 @@ export class TermsService {
         return 1;
       }
 
-      return 1 + (stati.wrong + 1) / (stati.correct + 1) / (stati.streak + 1);
+      return (
+        (stati.wrong + 1) /
+        Math.pow(stati.correct + 1, 2) /
+        Math.pow(stati.streak + 1, 3)
+      );
     });
 
     const steps = weights.map((w) => w);
