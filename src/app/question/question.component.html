@@ -2,9 +2,9 @@
   <mat-card class="mt-2" appearance="outlined">
     <mat-card-header>
       <mat-card-title-group>
-        <mat-card-title>Question</mat-card-title>
+        <mat-card-title>Question {{ index }}</mat-card-title>
         <mat-card-subtitle class="mt-2">
-          {{ index }} - {{ acceptLanguage.name }}
+          {{ acceptLanguage.name }}
           <span *ngIf="acceptLanguage.abbreviation"
             >({{ acceptLanguage.abbreviation | uppercase }})</span
           >
