@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1678911085069,
+  "timestamp": 1679428464455,
   "index": "https://parloti.github.io/istqb-glossary/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://parloti.github.io/istqb-glossary/favicon.ico",
         "https://parloti.github.io/istqb-glossary/index.html",
-        "https://parloti.github.io/istqb-glossary/main.bb6a6dbb473279bc.js",
+        "https://parloti.github.io/istqb-glossary/main.6e9fd44780fcbca8.js",
         "https://parloti.github.io/istqb-glossary/manifest.webmanifest",
         "https://parloti.github.io/istqb-glossary/polyfills.47c7290715669b01.js",
         "https://parloti.github.io/istqb-glossary/runtime.c8c90ecc184f7fdb.js",
@@ -52,8 +52,8 @@
     "https://parloti.github.io/istqb-glossary/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://parloti.github.io/istqb-glossary/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://parloti.github.io/istqb-glossary/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://parloti.github.io/istqb-glossary/index.html": "e948d3cf3e473f0d1ce02bd7c7c83393944033d3",
-    "https://parloti.github.io/istqb-glossary/main.bb6a6dbb473279bc.js": "d364e9f4c94b4cfadac2d3074e194bfa14867b0e",
+    "https://parloti.github.io/istqb-glossary/index.html": "14b68830604b7066397edb6b156746fab6095480",
+    "https://parloti.github.io/istqb-glossary/main.6e9fd44780fcbca8.js": "3425923604f9dd7621fa2115340964ef07f1e875",
     "https://parloti.github.io/istqb-glossary/manifest.webmanifest": "b5439f64f6510fc6d9cca63be275810eea3fdebe",
     "https://parloti.github.io/istqb-glossary/polyfills.47c7290715669b01.js": "6f3c4779cdc3ab4847ab54fef6aeca1f3cd2cea2",
     "https://parloti.github.io/istqb-glossary/runtime.c8c90ecc184f7fdb.js": "70a7a600352fab1ed4da648d65b45667a36a1192",
