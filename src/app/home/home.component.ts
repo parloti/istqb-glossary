@@ -41,6 +41,7 @@ export class HomeComponent {
   }
 
   public newSession(): void {
+    this.termsService.newSession()
     this.router.navigateByUrl('term/' + this.termsService.next());
   }
 

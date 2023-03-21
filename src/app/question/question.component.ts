@@ -107,7 +107,10 @@ export class QuestionComponent implements OnInit {
     const optionIds = new Set<IId>();
     while (optionIds.size < 3) {
       const newId = this.termsService.next();
-      if (newId !== `${current.accept_language.id}`) {
+      if (
+        newId !== `${current.accept_language.id}` &&
+        !this.termsService.sectionQuestions.includes(newId)
+      ) {
         optionIds.add(newId);
       }
     }

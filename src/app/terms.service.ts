@@ -18,6 +18,15 @@ interface IStatistics {
   providedIn: 'root',
 })
 export class TermsService {
+  private _sectionQuestions: Set<string> = new Set<string>();
+  public get sectionQuestions(): string[] {
+    return [...this._sectionQuestions.values()];
+  }
+
+  newSession() {
+    this._sectionQuestions.clear();
+  }
+
   public getStat(term: ITerm): IStatistic {
     this.loadStatistics();
     let stat = this._statistics[term.accept_language.id];
@@ -88,7 +97,9 @@ export class TermsService {
       }
     }
     debugger;
-    return this.ids[Math.floor(Math.random() * this.ids.length)];
+    const next = this.ids[Math.floor(Math.random() * this.ids.length)];
+    this._sectionQuestions.add(next);
+    return next;
   }
 
   constructor() {
